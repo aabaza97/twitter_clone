@@ -9,21 +9,43 @@
 /* Begin PBXBuildFile section */
 		BB8166C825CABF80004B8BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166C725CABF80004B8BEA /* AppDelegate.swift */; };
 		BB8166CA25CABF80004B8BEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166C925CABF80004B8BEA /* SceneDelegate.swift */; };
-		BB8166CC25CABF80004B8BEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166CB25CABF80004B8BEA /* ViewController.swift */; };
 		BB8166CF25CABF80004B8BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8166CD25CABF80004B8BEA /* Main.storyboard */; };
 		BB8166D125CABF81004B8BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8166D025CABF81004B8BEA /* Assets.xcassets */; };
 		BB8166D425CABF81004B8BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8166D225CABF81004B8BEA /* LaunchScreen.storyboard */; };
+		BB8166E825CAC251004B8BEA /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166E725CAC251004B8BEA /* MainTabbarController.swift */; };
+		BB8166EB25CAF4F5004B8BEA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166EA25CAF4F5004B8BEA /* FeedViewController.swift */; };
+		BB8166EE25CAF555004B8BEA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166ED25CAF555004B8BEA /* SearchViewController.swift */; };
+		BB8166F125CAF562004B8BEA /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F025CAF562004B8BEA /* NotificationsViewController.swift */; };
+		BB8166F425CAF571004B8BEA /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F325CAF571004B8BEA /* MessagesViewController.swift */; };
+		BB8166F725CB0C16004B8BEA /* UIViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */; };
+		BB8166FA25CB0C42004B8BEA /* UIColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F925CB0C42004B8BEA /* UIColorExtention.swift */; };
+		BB8166FD25CB112A004B8BEA /* FloatingButtonActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166FC25CB112A004B8BEA /* FloatingButtonActions.swift */; };
+		BB81670625CC0E30004B8BEA /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670525CC0E30004B8BEA /* UIElements.swift */; };
+		BB81670925CC139B004B8BEA /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670825CC139B004B8BEA /* UITextFieldExtension.swift */; };
+		BB81670C25CC8D47004B8BEA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670B25CC8D47004B8BEA /* RegistrationViewController.swift */; };
+		BB81671025CC8D7D004B8BEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670F25CC8D7D004B8BEA /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB8166C425CABF80004B8BEA /* twitter_clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter_clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8166C725CABF80004B8BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB8166C925CABF80004B8BEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB8166CB25CABF80004B8BEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB8166CE25CABF80004B8BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB8166D025CABF81004B8BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB8166D325CABF81004B8BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB8166D525CABF81004B8BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB8166E725CAC251004B8BEA /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		BB8166EA25CAF4F5004B8BEA /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		BB8166ED25CAF555004B8BEA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BB8166F025CAF562004B8BEA /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		BB8166F325CAF571004B8BEA /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtention.swift; sourceTree = "<group>"; };
+		BB8166F925CB0C42004B8BEA /* UIColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtention.swift; sourceTree = "<group>"; };
+		BB8166FC25CB112A004B8BEA /* FloatingButtonActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonActions.swift; sourceTree = "<group>"; };
+		BB81670525CC0E30004B8BEA /* UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
+		BB81670825CC139B004B8BEA /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		BB81670B25CC8D47004B8BEA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		BB81670F25CC8D7D004B8BEA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +78,82 @@
 		BB8166C625CABF80004B8BEA /* twitter_clone */ = {
 			isa = PBXGroup;
 			children = (
+				BB8166E425CAC016004B8BEA /* Models */,
+				BB8166E325CAC010004B8BEA /* Views */,
+				BB8166E225CAC00F004B8BEA /* Controllers */,
+				BB8166E125CAC00E004B8BEA /* ViewModels */,
+				BB8166E025CAC00C004B8BEA /* Utils */,
+				BB8166DD25CABFFF004B8BEA /* APIs */,
 				BB8166C725CABF80004B8BEA /* AppDelegate.swift */,
 				BB8166C925CABF80004B8BEA /* SceneDelegate.swift */,
-				BB8166CB25CABF80004B8BEA /* ViewController.swift */,
 				BB8166CD25CABF80004B8BEA /* Main.storyboard */,
 				BB8166D025CABF81004B8BEA /* Assets.xcassets */,
 				BB8166D225CABF81004B8BEA /* LaunchScreen.storyboard */,
 				BB8166D525CABF81004B8BEA /* Info.plist */,
 			);
 			path = twitter_clone;
+			sourceTree = "<group>";
+		};
+		BB8166DD25CABFFF004B8BEA /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		BB8166E025CAC00C004B8BEA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */,
+				BB8166F925CB0C42004B8BEA /* UIColorExtention.swift */,
+				BB8166FC25CB112A004B8BEA /* FloatingButtonActions.swift */,
+				BB81670525CC0E30004B8BEA /* UIElements.swift */,
+				BB81670825CC139B004B8BEA /* UITextFieldExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BB8166E125CAC00E004B8BEA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BB8166E225CAC00F004B8BEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB81670125CB1948004B8BEA /* Auth */,
+				BB8166E725CAC251004B8BEA /* MainTabbarController.swift */,
+				BB8166EA25CAF4F5004B8BEA /* FeedViewController.swift */,
+				BB8166ED25CAF555004B8BEA /* SearchViewController.swift */,
+				BB8166F025CAF562004B8BEA /* NotificationsViewController.swift */,
+				BB8166F325CAF571004B8BEA /* MessagesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BB8166E325CAC010004B8BEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB8166E425CAC016004B8BEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB81670125CB1948004B8BEA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BB81670B25CC8D47004B8BEA /* RegistrationViewController.swift */,
+				BB81670F25CC8D7D004B8BEA /* LoginViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +226,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB8166CC25CABF80004B8BEA /* ViewController.swift in Sources */,
+				BB81671025CC8D7D004B8BEA /* LoginViewController.swift in Sources */,
+				BB8166EE25CAF555004B8BEA /* SearchViewController.swift in Sources */,
+				BB8166F425CAF571004B8BEA /* MessagesViewController.swift in Sources */,
 				BB8166C825CABF80004B8BEA /* AppDelegate.swift in Sources */,
+				BB8166FD25CB112A004B8BEA /* FloatingButtonActions.swift in Sources */,
+				BB81670C25CC8D47004B8BEA /* RegistrationViewController.swift in Sources */,
 				BB8166CA25CABF80004B8BEA /* SceneDelegate.swift in Sources */,
+				BB8166F125CAF562004B8BEA /* NotificationsViewController.swift in Sources */,
+				BB8166EB25CAF4F5004B8BEA /* FeedViewController.swift in Sources */,
+				BB81670925CC139B004B8BEA /* UITextFieldExtension.swift in Sources */,
+				BB8166E825CAC251004B8BEA /* MainTabbarController.swift in Sources */,
+				BB8166F725CB0C16004B8BEA /* UIViewExtention.swift in Sources */,
+				BB8166FA25CB0C42004B8BEA /* UIColorExtention.swift in Sources */,
+				BB81670625CC0E30004B8BEA /* UIElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "eye.corps.twitter-clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,7 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "eye.corps.twitter-clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
