@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1557203EF1409C9AC7557296 /* Pods_twitter_clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C0A8BF08AD8A8DFABECD47 /* Pods_twitter_clone.framework */; };
 		BB8166C825CABF80004B8BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166C725CABF80004B8BEA /* AppDelegate.swift */; };
 		BB8166CA25CABF80004B8BEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166C925CABF80004B8BEA /* SceneDelegate.swift */; };
 		BB8166CF25CABF80004B8BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8166CD25CABF80004B8BEA /* Main.storyboard */; };
@@ -20,13 +21,22 @@
 		BB8166F725CB0C16004B8BEA /* UIViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */; };
 		BB8166FA25CB0C42004B8BEA /* UIColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F925CB0C42004B8BEA /* UIColorExtention.swift */; };
 		BB8166FD25CB112A004B8BEA /* FloatingButtonActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166FC25CB112A004B8BEA /* FloatingButtonActions.swift */; };
-		BB81670625CC0E30004B8BEA /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670525CC0E30004B8BEA /* UIElements.swift */; };
+		BB81670625CC0E30004B8BEA /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670525CC0E30004B8BEA /* UIComponents.swift */; };
 		BB81670925CC139B004B8BEA /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670825CC139B004B8BEA /* UITextFieldExtension.swift */; };
 		BB81670C25CC8D47004B8BEA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670B25CC8D47004B8BEA /* RegistrationViewController.swift */; };
 		BB81671025CC8D7D004B8BEA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81670F25CC8D7D004B8BEA /* LoginViewController.swift */; };
+		BB81673625CF1DBB004B8BEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB81673525CF1DBA004B8BEA /* GoogleService-Info.plist */; };
+		BB81678025CF2967004B8BEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81677F25CF2967004B8BEA /* User.swift */; };
+		BB81678325CF2DF1004B8BEA /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81678225CF2DF1004B8BEA /* UserManager.swift */; };
+		BB8167A525CF3016004B8BEA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167A425CF3016004B8BEA /* AuthManager.swift */; };
+		BB8167A825CFF184004B8BEA /* FileUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167A725CFF184004B8BEA /* FileUploadManager.swift */; };
+		BB8167AB25CFF2D1004B8BEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167AA25CFF2D1004B8BEA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42C0A8BF08AD8A8DFABECD47 /* Pods_twitter_clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48AF586BC7E96B8E026277CD /* Pods-twitter_clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter_clone.release.xcconfig"; path = "Target Support Files/Pods-twitter_clone/Pods-twitter_clone.release.xcconfig"; sourceTree = "<group>"; };
+		8C11A5F06E2A40953AB16D2B /* Pods-twitter_clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter_clone.debug.xcconfig"; path = "Target Support Files/Pods-twitter_clone/Pods-twitter_clone.debug.xcconfig"; sourceTree = "<group>"; };
 		BB8166C425CABF80004B8BEA /* twitter_clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter_clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8166C725CABF80004B8BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB8166C925CABF80004B8BEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,10 +52,16 @@
 		BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtention.swift; sourceTree = "<group>"; };
 		BB8166F925CB0C42004B8BEA /* UIColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtention.swift; sourceTree = "<group>"; };
 		BB8166FC25CB112A004B8BEA /* FloatingButtonActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonActions.swift; sourceTree = "<group>"; };
-		BB81670525CC0E30004B8BEA /* UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
+		BB81670525CC0E30004B8BEA /* UIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
 		BB81670825CC139B004B8BEA /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		BB81670B25CC8D47004B8BEA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		BB81670F25CC8D7D004B8BEA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BB81673525CF1DBA004B8BEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BB81677F25CF2967004B8BEA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BB81678225CF2DF1004B8BEA /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		BB8167A425CF3016004B8BEA /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		BB8167A725CFF184004B8BEA /* FileUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadManager.swift; sourceTree = "<group>"; };
+		BB8167AA25CFF2D1004B8BEA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +69,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1557203EF1409C9AC7557296 /* Pods_twitter_clone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CD37488B58022CE05DE6EA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42C0A8BF08AD8A8DFABECD47 /* Pods_twitter_clone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D518012CBF189C0CB7BEC37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C11A5F06E2A40953AB16D2B /* Pods-twitter_clone.debug.xcconfig */,
+				48AF586BC7E96B8E026277CD /* Pods-twitter_clone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BB8166BB25CABF80004B8BEA = {
 			isa = PBXGroup;
 			children = (
 				BB8166C625CABF80004B8BEA /* twitter_clone */,
 				BB8166C525CABF80004B8BEA /* Products */,
+				1D518012CBF189C0CB7BEC37 /* Pods */,
+				1CD37488B58022CE05DE6EA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +126,7 @@
 				BB8166D025CABF81004B8BEA /* Assets.xcassets */,
 				BB8166D225CABF81004B8BEA /* LaunchScreen.storyboard */,
 				BB8166D525CABF81004B8BEA /* Info.plist */,
+				BB81673525CF1DBA004B8BEA /* GoogleService-Info.plist */,
 			);
 			path = twitter_clone;
 			sourceTree = "<group>";
@@ -97,6 +134,9 @@
 		BB8166DD25CABFFF004B8BEA /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				BB81678225CF2DF1004B8BEA /* UserManager.swift */,
+				BB8167A425CF3016004B8BEA /* AuthManager.swift */,
+				BB8167A725CFF184004B8BEA /* FileUploadManager.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -107,8 +147,9 @@
 				BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */,
 				BB8166F925CB0C42004B8BEA /* UIColorExtention.swift */,
 				BB8166FC25CB112A004B8BEA /* FloatingButtonActions.swift */,
-				BB81670525CC0E30004B8BEA /* UIElements.swift */,
+				BB81670525CC0E30004B8BEA /* UIComponents.swift */,
 				BB81670825CC139B004B8BEA /* UITextFieldExtension.swift */,
+				BB8167AA25CFF2D1004B8BEA /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -143,6 +184,7 @@
 		BB8166E425CAC016004B8BEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BB81677F25CF2967004B8BEA /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB8166D825CABF81004B8BEA /* Build configuration list for PBXNativeTarget "twitter_clone" */;
 			buildPhases = (
+				9BEF5DFB700AA178288FE544 /* [CP] Check Pods Manifest.lock */,
 				BB8166C025CABF80004B8BEA /* Sources */,
 				BB8166C125CABF80004B8BEA /* Frameworks */,
 				BB8166C225CABF80004B8BEA /* Resources */,
+				0B94C5884ED21DDF50A2A80A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB8166D425CABF81004B8BEA /* LaunchScreen.storyboard in Resources */,
+				BB81673625CF1DBB004B8BEA /* GoogleService-Info.plist in Resources */,
 				BB8166D125CABF81004B8BEA /* Assets.xcassets in Resources */,
 				BB8166CF25CABF80004B8BEA /* Main.storyboard in Resources */,
 			);
@@ -221,25 +266,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B94C5884ED21DDF50A2A80A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-twitter_clone/Pods-twitter_clone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-twitter_clone/Pods-twitter_clone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-twitter_clone/Pods-twitter_clone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BEF5DFB700AA178288FE544 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-twitter_clone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB8166C025CABF80004B8BEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BB81671025CC8D7D004B8BEA /* LoginViewController.swift in Sources */,
+				BB8167AB25CFF2D1004B8BEA /* Constants.swift in Sources */,
 				BB8166EE25CAF555004B8BEA /* SearchViewController.swift in Sources */,
 				BB8166F425CAF571004B8BEA /* MessagesViewController.swift in Sources */,
 				BB8166C825CABF80004B8BEA /* AppDelegate.swift in Sources */,
+				BB8167A825CFF184004B8BEA /* FileUploadManager.swift in Sources */,
 				BB8166FD25CB112A004B8BEA /* FloatingButtonActions.swift in Sources */,
 				BB81670C25CC8D47004B8BEA /* RegistrationViewController.swift in Sources */,
+				BB81678325CF2DF1004B8BEA /* UserManager.swift in Sources */,
+				BB8167A525CF3016004B8BEA /* AuthManager.swift in Sources */,
 				BB8166CA25CABF80004B8BEA /* SceneDelegate.swift in Sources */,
 				BB8166F125CAF562004B8BEA /* NotificationsViewController.swift in Sources */,
+				BB81678025CF2967004B8BEA /* User.swift in Sources */,
 				BB8166EB25CAF4F5004B8BEA /* FeedViewController.swift in Sources */,
 				BB81670925CC139B004B8BEA /* UITextFieldExtension.swift in Sources */,
 				BB8166E825CAC251004B8BEA /* MainTabbarController.swift in Sources */,
 				BB8166F725CB0C16004B8BEA /* UIViewExtention.swift in Sources */,
 				BB8166FA25CB0C42004B8BEA /* UIColorExtention.swift in Sources */,
-				BB81670625CC0E30004B8BEA /* UIElements.swift in Sources */,
+				BB81670625CC0E30004B8BEA /* UIComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +475,7 @@
 		};
 		BB8166D925CABF81004B8BEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C11A5F06E2A40953AB16D2B /* Pods-twitter_clone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -401,6 +494,7 @@
 		};
 		BB8166DA25CABF81004B8BEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48AF586BC7E96B8E026277CD /* Pods-twitter_clone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

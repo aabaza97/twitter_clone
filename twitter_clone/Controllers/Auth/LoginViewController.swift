@@ -23,17 +23,27 @@ class LoginViewController: UIViewController {
     
     private lazy var emailView: UIView = {
         let img = #imageLiteral(resourceName: "ic_mail_outline_white_2x-1")
-        let txt = UIElements.shared.createTextField(with: "Email", placeholderColor: .white, textColor: .white)
-        let view = UIElements.shared.createContainerViewForInput(with: img, and: txt)
+        let txt = txtEmail
+        let view = UIComponents.shared.createContainerViewForInput(with: img, and: txt)
         return view
+    }()
+    
+    private lazy var txtEmail: UITextField = {
+        let txt = UIComponents.shared.createTextField(with: "Email", placeholderColor: .white, textColor: .white)
+        return txt
     }()
     
     private lazy var passwordView: UIView = {
         let img = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
-        let txt = UIElements.shared.createTextField(with: "Password", placeholderColor: .white, textColor: .white)
-        txt.isSecureTextEntry = true
-        let view = UIElements.shared.createContainerViewForInput(with: img, and: txt)
+        let txt = txtPassword
+        let view = UIComponents.shared.createContainerViewForInput(with: img, and: txt)
         return view
+    }()
+    
+    private lazy var txtPassword: UITextField = {
+        let txt = UIComponents.shared.createTextField(with: "Password", placeholderColor: .white, textColor: .white)
+        txt.isSecureTextEntry = true
+        return txt
     }()
     
     private let loginButton: UIButton = {
@@ -49,7 +59,7 @@ class LoginViewController: UIViewController {
     }()
     
     private let controlFlowButton: UIButton = {
-        let btn = UIElements.shared.createAttrStrButton(thin: "Do not have an account?", bold: " Create New")
+        let btn = UIComponents.shared.createAttrStrButton(thin: "Do not have an account?", bold: " Sign Up")
         btn.addTarget(self, action: #selector(controlFlowPressed), for: .touchUpInside)
         return btn
     }()
@@ -62,11 +72,26 @@ class LoginViewController: UIViewController {
     //MARK: -Selectors
     
     @objc private func loginButtonPressed() -> Void {
-        print("Loging you in..")
+        guard let email = txtEmail.text else { return }
+        guard let password = txtPassword.text else { return }
+        
+        AuthManager.shared.login(with: email, and: password) { [weak self](result) in
+            switch result {
+            case.success(_):
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+                guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
+                guard let tabController = window.rootViewController as? MainTabbarController else { return }
+                tabController.checkLoginStatus()
+                break
+            case.failure(_):
+                break
+            }
+        }
     }
     
     @objc private func controlFlowPressed() -> Void {
-        
+        let vc = RegistrationViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: -Functions
@@ -79,7 +104,7 @@ class LoginViewController: UIViewController {
         //LOGO
         self.view.addSubview(logoImageView)
         logoImageView.centerX(inView: self.view, topAnchor: self.view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
-        logoImageView.setDimensions(width: 120, height: 120)
+        logoImageView.setDimensions(width: 100, height: 100)
         
         //UIElements
         let stackView = UIStackView(arrangedSubviews: [emailView, passwordView, loginButton])

@@ -26,13 +26,40 @@ class MainTabbarController: UITabBarController {
     
     
     //MARK: -Overrides
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureTabbarController()
-        self.configureView()
+        self.view.backgroundColor = .twitterBlue
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.checkLoginStatus()
+    }
+    
+    
+    
     //MARK: -Functions
+    func checkLoginStatus() -> Void {
+        AuthManager.shared.checkUserAuthStatus { [weak self](result) in
+            switch result {
+            case.success(_):
+                self?.configureTabbarController()
+                self?.configureView()
+                break
+            case.failure(_):
+                //user is not logged in
+                DispatchQueue.main.async {
+                    let nav = UINavigationController(rootViewController: LoginViewController())
+                    nav.modalPresentationStyle = .fullScreen
+                    self?.present(nav, animated: true, completion: nil)
+                }
+                break
+            }
+        }
+    }
+    
     func configureView() -> Void {
         self.view.addSubview(floatingActionButton)
         self.floatingActionButton.anchor( bottom: self.view.safeAreaLayoutGuide.bottomAnchor,

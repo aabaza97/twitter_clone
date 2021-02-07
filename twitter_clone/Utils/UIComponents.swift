@@ -7,8 +7,8 @@
 
 import UIKit
 
-class UIElements {
-    static let shared = UIElements()
+class UIComponents {
+    static let shared = UIComponents()
     
     func createContainerViewForInput(with image: UIImage? = nil, and input: UITextField? = nil) -> UIView {
         let view = UIView()

@@ -9,6 +9,14 @@ import UIKit
 
 extension UIView {
     
+    public var width: CGFloat {
+        return frame.size.width
+    }
+
+    public var height: CGFloat {
+        return frame.size.height
+    }
+    
     func anchor(top: NSLayoutYAxisAnchor? = nil,
                 left: NSLayoutXAxisAnchor? = nil,
                 bottom: NSLayoutYAxisAnchor? = nil,
