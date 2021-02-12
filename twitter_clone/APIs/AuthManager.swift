@@ -22,7 +22,8 @@ class AuthManager {
     
     //MARK: -Completion Handlers
     typealias authCompletionHandler = (Result<String, AuthError>) -> Void
-    typealias checkAuthStatusCompletionHandler = (Result<Bool, AuthError>) -> Void
+    typealias checkAuthStatusCompletionHandler = (Result<String, AuthError>) -> Void
+    typealias signOutCompletionHanlder = (Bool) -> Void
     
     //MARK: -Functions
     
@@ -40,7 +41,7 @@ class AuthManager {
     public func login(with email: String ,and password: String, completion: @escaping authCompletionHandler ) -> Void {
         auth.signIn(withEmail: email, password: password) { (authResult, error) in
             guard let authResult = authResult, error == nil else {completion(.failure(.FailedToLogIn)); return}
-            UserManager.shared.getUser(with: authResult.user.uid) { (getResult) in
+            UserManager.shared.getMyUser(with: authResult.user.uid) { (getResult) in
                 switch getResult {
                 case true:
                     completion(.success(authResult.user.uid))
@@ -55,8 +56,20 @@ class AuthManager {
     }
     
     public func checkUserAuthStatus(completion: @escaping checkAuthStatusCompletionHandler){
-        if auth.currentUser != nil {
-            completion(.success(true))
-        } else { completion(.failure(.FailedToLogIn)) }
+        guard let userId = auth.currentUser?.uid else {
+            completion(.failure(.FailedToLogIn))
+            return
+        }
+        
+        completion(.success(userId))
+    }
+    
+    public func logOut(completion: @escaping signOutCompletionHanlder) -> Void  {
+        do {
+            try auth.signOut()
+            completion(true)
+        } catch _ {
+            completion(false)
+        }
     }
 }

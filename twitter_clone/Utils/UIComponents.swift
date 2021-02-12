@@ -77,4 +77,12 @@ class UIComponents {
         return btn
     }
     
+    ///Sets up a UINavigationController for a UIViewController with a TabbarItem image.
+    func setupNavControllerForTabbarItem(with controller: UIViewController, and image: UIImage?) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: controller)
+        nav.tabBarItem.image = image
+        nav.navigationBar.barTintColor = .white
+        return nav
+    }
+    
 }

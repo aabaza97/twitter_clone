@@ -23,7 +23,7 @@ class FileUploadManager {
     //MARK: -Functions
     ///Uploads a user image to the profile images location in the database. Returns the uploaded image URL as String.
     func uploadProfileImage(userId: String, imageData: Data, completion: @escaping uploadProfileImageCompletion) -> Void {
-        let fileName = userId + "_" + NSUUID().uuidString
+        let fileName = userId + "_" + NSUUID().uuidString + ".png"
         let locationRef = profileImagesLocation.child(userId).child(fileName)
         
         locationRef.putData(imageData, metadata: nil) { (_, error) in

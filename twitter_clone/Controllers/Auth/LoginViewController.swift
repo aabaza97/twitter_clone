@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         btn.setTitleColor(.twitterBlue, for: .normal)
         btn.backgroundColor = .white
         btn.setHeight(50)
-        btn.layer.cornerRadius = 5
+        btn.layer.cornerRadius = 25
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         btn.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return btn

@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
     func configureView() -> Void {
         self.view.backgroundColor = .white
         self.navigationItem.title = "Explore"
+        
     }
 
 }

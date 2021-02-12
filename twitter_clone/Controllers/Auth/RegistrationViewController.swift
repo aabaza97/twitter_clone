@@ -38,19 +38,22 @@ class RegistrationViewController: UIViewController {
     
     private lazy var txtEmail: UITextField = {
         let txt = UIComponents.shared.createTextField(with: "Email", placeholderColor: .white, textColor: .white)
+        txt.textContentType = .emailAddress
         return txt
     }()
     
     private lazy var passwordView: UIView = {
         let img = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
         let txt = txtPassword
+        txt.isSecureTextEntry = true
         let view = UIComponents.shared.createContainerViewForInput(with: img, and: txt)
         return view
     }()
     
     private lazy var txtPassword: UITextField = {
         let txt = UIComponents.shared.createTextField(with: "Password", placeholderColor: .white, textColor: .white)
-        txt.isSecureTextEntry = true
+        txt.isSecureTextEntry = false
+        txt.delegate = self
         return txt
     }()
     
@@ -63,6 +66,7 @@ class RegistrationViewController: UIViewController {
     
     private lazy var txtUsername: UITextField = {
         let txt = UIComponents.shared.createTextField(with: "Username", placeholderColor: .white, textColor: .white)
+        txt.textContentType = .name
         return txt
     }()
     
@@ -75,6 +79,7 @@ class RegistrationViewController: UIViewController {
     
     private lazy var txtName: UITextField = {
         let txt = UIComponents.shared.createTextField(with: "FullName", placeholderColor: .white, textColor: .white)
+        txt.textContentType = .name
         return txt
     }()
     
@@ -84,7 +89,7 @@ class RegistrationViewController: UIViewController {
         btn.setTitleColor(.twitterBlue, for: .normal)
         btn.backgroundColor = .white
         btn.setHeight(50)
-        btn.layer.cornerRadius = 5
+        btn.layer.cornerRadius = 25
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         btn.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
         return btn
@@ -109,14 +114,14 @@ class RegistrationViewController: UIViewController {
         //Handle Registration Here
         
         guard let email = txtEmail.text else { return }
-        guard let password = txtEmail.text else { return }
-        guard let username = txtEmail.text else { return }
-        guard let fullname = txtEmail.text else { return }
-        guard let profileImage = profileImage?.jpegData(compressionQuality: 0.5) else { return }
+        guard let password = txtPassword.text else { return }
+        guard let username = txtUsername.text?.lowercased() else { return }
+        guard let fullname = txtName.text else { return }
+        guard let profileImage = profileImage?.pngData() else { return }
         
-        let user = User(userId: "", username: username, fullname: fullname, email: email, image: "")
+        let userCredentials = AuthCredential(username: username, email: email, fullname: fullname, password: password)
         
-        UserManager.shared.createNew(from: user, with: password, profileImage: profileImage) { [weak self](result) in
+        UserManager.shared.createNew(from: userCredentials ,profileImage: profileImage) { [weak self](result) in
             switch result {
             case.success(let newUser):
                 GlobalUser.shared.set(from: newUser)
@@ -126,6 +131,7 @@ class RegistrationViewController: UIViewController {
                 tabController.checkLoginStatus()
                 break
             case.failure(_):
+                print("Error: Failed to Create New Account")
                 break
             }
         }
@@ -179,12 +185,13 @@ class RegistrationViewController: UIViewController {
 extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImg = info[.editedImage] as? UIImage else { return }
+        //Add Edit bottom view once a picture is selected only once
+        if self.profileImage == nil { self.addBottomView() }
         
         self.profileImage = profileImg
         self.profileImageButton.setImage(profileImg.withRenderingMode(.alwaysOriginal), for: .normal)
         self.profileImageButton.layer.borderWidth = 1
         self.profileImageButton.layer.borderColor = UIColor.white.cgColor
-//        self.addBottomView()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -207,5 +214,15 @@ extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigat
         view.anchor( left: profileImageButton.leftAnchor,
                      bottom: profileImageButton.bottomAnchor,
                      right: profileImageButton.rightAnchor)
+    }
+}
+
+
+extension RegistrationViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (textField == self.txtPassword && !self.txtPassword.isSecureTextEntry){
+            self.txtPassword.isSecureTextEntry = true
+        }
+        return true
     }
 }

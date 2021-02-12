@@ -18,17 +18,19 @@ class UserManager {
     
     enum UserManagerError: Error {
         case FailedToSetUserData
+        case FailedToGetUserData
     }
     
     //MARK: -CompletionHandlers
-     typealias createUserCompletion = (Result<User, Error>) -> Void
+    typealias createUserCompletion = (Result<User, Error>) -> Void
+    typealias getUserCompletionHandler = (Result<User, UserManagerError>) -> Void
     
     //MARK: -Fucntions
     ///Creates New User. Do not specify "userId" nor "image". Returns a User Object on Success.
-    public func createNew(from user: User, with password: String, profileImage: Data, completion: @escaping createUserCompletion){
+    public func createNew(from userCredentails: AuthCredential, profileImage: Data, completion: @escaping createUserCompletion){
         
         //Authentication
-        AuthManager.shared.register(with: user.email, and: password) { (authResult) in
+        AuthManager.shared.register(with: userCredentails.email, and: userCredentails.password) { (authResult) in
             switch authResult {
             case.success(let id ):
                 //Upload User Image Profile
@@ -36,7 +38,11 @@ class UserManager {
                     switch uploadResult {
                     case.success(let url):
                         //Set User Firestore Document
-                        let newUser = User(userId: id, username: user.username, fullname: user.fullname, email: user.email, image: url)
+                        let newUser = User(userId: id,
+                                           username: userCredentails.username,
+                                           fullname: userCredentails.fullname,
+                                           email: userCredentails.email,
+                                           image: url)
                         self?.setUserData(for: newUser) { (setDataResult) in
                             switch setDataResult {
                             case.success(_):
@@ -62,11 +68,19 @@ class UserManager {
         }//#END Authentication
     }
     
-    func getUser(with userId: String, completion: @escaping (Bool) -> Void) -> Void {
+    func getMyUser(with userId: String, completion: @escaping (Bool) -> Void) -> Void {
         db.collection(colName).document(userId).getDocument { (snapshot, error) in
             guard let data = snapshot?.data(), error == nil else { completion(false); return }
-            GlobalUser.shared.setFrom(doc: data)
+            GlobalUser.shared.set(from: data)
             completion(true)
+        }
+    }
+    
+    func getUser(with id: String, completion: @escaping getUserCompletionHandler) -> Void {
+        db.collection(colName).document(id).getDocument { (snapshot, error) in
+            guard let data = snapshot?.data(), error == nil else { completion(.failure(.FailedToGetUserData)); return }
+            let user = User(from: data)
+            completion(.success(user))
         }
     }
     
