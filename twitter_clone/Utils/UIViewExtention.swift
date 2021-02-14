@@ -101,6 +101,27 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: width).isActive = true
     }
+    
+    func getMaxWidth(for height: CGFloat) -> CGFloat {
+        let measurer = UIView()
+        measurer.setHeight(height)
+        return 0
+    }
+    
+
+    func getDynamicHeight(for content: String, with width: CGFloat, _ originHeight: CGFloat, _ cellMargins: CGFloat) -> CGFloat {
+        let originHeight: CGFloat = originHeight
+        let cellPaddings: CGFloat = cellMargins
+        let measurer = UILabel()
+        measurer.text = content
+        measurer.numberOfLines = 0
+        measurer.lineBreakMode = .byWordWrapping
+        measurer.setWdith(width - cellPaddings)
+        return measurer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height + originHeight
+    }
+    
+    
+    
 }
 
 

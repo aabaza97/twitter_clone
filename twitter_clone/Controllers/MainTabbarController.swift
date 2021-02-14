@@ -52,7 +52,7 @@ class MainTabbarController: UITabBarController {
     
     
     //MARK: -Functions
-    func configureView() -> Void {
+    private func configureView() -> Void {
         //Tabbar configuration
         self.configureTabbarController()
         
@@ -66,16 +66,28 @@ class MainTabbarController: UITabBarController {
                                      height: 56)
     }
 
-    func configureTabbarController() -> Void {
+    private func configureTabbarController() -> Void {
+        //Tabbar configurations
         self.tabBar.isHidden = false
+        self.tabBar.tintColor = .twitterBlue
+        self.tabBar.isTranslucent = false
         
-        let home = setupNavControllerForTabbarItem(with: FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()), and: UIImage(systemName: "house") )
-        let search = setupNavControllerForTabbarItem(with: SearchViewController(), and: UIImage(systemName: "magnifyingglass") )
-        let notifications = setupNavControllerForTabbarItem(with: NotificationsViewController(), and: UIImage(systemName: "bell") )
-        let messages = setupNavControllerForTabbarItem(with: MessagesViewController(), and: UIImage(systemName: "envelope") )
+        //Adding TabItems
+        let imgConfig = UIImage.SymbolConfiguration(weight: .medium)
+        let home = setupNavControllerForTabbarItem(with: FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()),
+                                                   and: UIImage(systemName: "house.fill", withConfiguration: imgConfig))
+        
+        let search = setupNavControllerForTabbarItem(with: ExploreViewController(),
+                                                     and: UIImage(systemName: "magnifyingglass", withConfiguration: imgConfig))
+        
+        let notifications = setupNavControllerForTabbarItem(with: NotificationsViewController(),
+                                                            and: UIImage(systemName: "bell", withConfiguration: imgConfig))
+        
+        let messages = setupNavControllerForTabbarItem(with: MessagesViewController(),
+                                                       and: UIImage(systemName: "envelope", withConfiguration: imgConfig))
         
         self.viewControllers = [home, search, notifications, messages]
-        self.tabBar.tintColor = .twitterBlue
+        
     }
     
     ///Sets up a UINavigationController for a UIViewController with a TabbarItem image.
@@ -109,7 +121,7 @@ class MainTabbarController: UITabBarController {
         }
     }
     
-    func logOut() -> Void {
+    private func logOut() -> Void {
         AuthManager.shared.logOut { [weak self](result) in
             switch result {
             case true:

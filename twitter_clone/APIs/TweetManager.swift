@@ -50,4 +50,21 @@ class TweetManager {
             completion(.success(tweets))
         }
     }
+    
+    func fetchTweets(for user: User, completion: @escaping fetchTweetsCompletionHandler) -> Void {
+        db.collection(colName).whereField("userId", isEqualTo: user.userId).getDocuments { (snapshot, error) in
+            guard let docs = snapshot?.documents, error == nil else {
+                completion(.failure(.FailedToCreate))
+                return
+            }
+            
+            var tweets = [Tweet]()
+            docs.forEach { (doc) in
+                
+                tweets.append(Tweet(from: doc.data()))
+            }
+            
+            completion(.success(tweets))
+        }
+    }
 }

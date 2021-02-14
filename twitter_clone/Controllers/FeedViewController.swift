@@ -28,7 +28,19 @@ class FeedViewController: UICollectionViewController {
     
     private lazy var sideMenuButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setImage(UIImage(systemName: "line.horizontal.3"), for: .normal)
+        let imgConfig = UIImage.SymbolConfiguration(weight: .bold)
+        let img = UIImage(systemName: "line.horizontal.3", withConfiguration: imgConfig)
+        btn.setImage(img , for: .normal)
+        btn.tintColor = .twitterBlue
+        btn.addTarget(self, action: #selector(toggleSideMenu), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var feedControlButton: UIButton = {
+        let btn = UIButton(type: .system)
+        let imgConfig = UIImage.SymbolConfiguration(weight: .bold)
+        let img = UIImage(systemName: "wand.and.stars.inverse", withConfiguration: imgConfig)
+        btn.setImage(img , for: .normal)
         btn.tintColor = .twitterBlue
         btn.addTarget(self, action: #selector(toggleSideMenu), for: .touchUpInside)
         return btn
@@ -41,7 +53,21 @@ class FeedViewController: UICollectionViewController {
         self.fetchTweets()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barStyle = .default
+        self.navigationController?.navigationBar.isHidden = false
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        self.navigationController?.navigationBar.isHidden = false
+    }
     
     //MARK: -Selectors
     @objc func toggleSideMenu() -> Void {
@@ -71,7 +97,6 @@ class FeedViewController: UICollectionViewController {
         self.view.backgroundColor = .white
         
         //RefreshControl configuration
-
         self.refreshControl.addTarget(self, action: #selector(fetchTweets), for: .valueChanged)
         
         //CollectionView configuration
@@ -80,7 +105,9 @@ class FeedViewController: UICollectionViewController {
         self.collectionView.refreshControl = self.refreshControl
         
         //Navigation bar configuration
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: feedControlButton)
         
         let imgView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
         imgView.setDimensions(width: 42, height: 42)
@@ -99,7 +126,7 @@ class FeedViewController: UICollectionViewController {
 }
 
 
-//MARK: - EXT(CollectionViweDelegate)
+//MARK: - EXT(CollectionViewDelegate)
 extension FeedViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tweets.count
@@ -111,6 +138,7 @@ extension FeedViewController {
         let index: Int = indexPath.row
         
         tweetCell.tweet = self.tweets[index]
+        tweetCell.delegate = self
         
         return tweetCell
     }
@@ -120,10 +148,24 @@ extension FeedViewController {
 //MARK: -EXT(FlowLayoutDelegate)
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 110)
+        let tweetVM = TweetVM(tweet: tweets[indexPath.row])
+        let width = self.view.frame.width
+        return CGSize(width: width,
+                      height: tweetVM.getTweetHeight(for: width))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+
+//MARK: -EXT(TweetCellDelegate)
+extension FeedViewController: TweetCellDelegate {
+    func showProfileForUser(_ user: User) {
+        let profileVC = UserProfileViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        profileVC.user = user
+        
+        self.navigationController?.pushViewController(profileVC, animated: true)
     }
 }

@@ -8,12 +8,15 @@
 import Foundation
 
 struct User: Codable {
+    //MARK: -Properties
     var userId: String
     var username: String
     var fullname: String
     var email: String
     var image: String
     
+    
+    //MARK: -Inits
     init(userId: String, username: String, fullname: String, email: String, image: String) {
         self.userId = userId
         self.username = username
@@ -30,21 +33,24 @@ struct User: Codable {
         self.fullname = data["fullname"] as! String
     }
     
+    
+    //MARK: -Functions
     func getImageURL() -> URL {
         return URL(string: self.image)!
     }
 }
 
 class GlobalUser {
-    
+    //MARK: -Properties
     static let shared = GlobalUser()
     
-    private var userId: String
+    private var userId: String 
     private var username: String
     private var fullname: String
     private var email: String
     private var image: String
     
+    //MARK: -Inits
     private init () {
         self.userId = ""
         self.username = ""
@@ -103,4 +109,6 @@ class GlobalUser {
         self.image = doc["image"] as! String
     }
 
+    //MARK: -Functions
+    
 }

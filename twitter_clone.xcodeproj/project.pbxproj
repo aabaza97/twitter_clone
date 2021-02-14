@@ -15,7 +15,7 @@
 		BB8166D425CABF81004B8BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8166D225CABF81004B8BEA /* LaunchScreen.storyboard */; };
 		BB8166E825CAC251004B8BEA /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166E725CAC251004B8BEA /* MainTabbarController.swift */; };
 		BB8166EB25CAF4F5004B8BEA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166EA25CAF4F5004B8BEA /* FeedViewController.swift */; };
-		BB8166EE25CAF555004B8BEA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166ED25CAF555004B8BEA /* SearchViewController.swift */; };
+		BB8166EE25CAF555004B8BEA /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166ED25CAF555004B8BEA /* ExploreViewController.swift */; };
 		BB8166F125CAF562004B8BEA /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F025CAF562004B8BEA /* NotificationsViewController.swift */; };
 		BB8166F425CAF571004B8BEA /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F325CAF571004B8BEA /* MessagesViewController.swift */; };
 		BB8166F725CB0C16004B8BEA /* UIViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */; };
@@ -37,6 +37,18 @@
 		BB8167E925D4BBEE004B8BEA /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167E825D4BBEE004B8BEA /* Tweet.swift */; };
 		BB8167EC25D54CAD004B8BEA /* TweetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167EB25D54CAD004B8BEA /* TweetManager.swift */; };
 		BB8167EF25D56482004B8BEA /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167EE25D56482004B8BEA /* TweetCell.swift */; };
+		BB8167F225D6B477004B8BEA /* TweetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167F125D6B477004B8BEA /* TweetVM.swift */; };
+		BB8167F525D6D437004B8BEA /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167F425D6D437004B8BEA /* UserProfileViewController.swift */; };
+		BB8167F825D6EB1E004B8BEA /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167F725D6EB1E004B8BEA /* ProfileHeaderView.swift */; };
+		BB8167FB25D81210004B8BEA /* UserProfileTweetsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167FA25D8120F004B8BEA /* UserProfileTweetsFilterView.swift */; };
+		BB8167FE25D8183C004B8BEA /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8167FD25D8183C004B8BEA /* FilterButtonView.swift */; };
+		BB81680125D83AD9004B8BEA /* ProfileHeaderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81680025D83AD9004B8BEA /* ProfileHeaderVM.swift */; };
+		BB81680425D88137004B8BEA /* ExploreTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81680325D88136004B8BEA /* ExploreTitleView.swift */; };
+		BB81680725D924E2004B8BEA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81680625D924E2004B8BEA /* SearchViewController.swift */; };
+		BB81680B25D92B57004B8BEA /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81680A25D92B57004B8BEA /* SearchBarView.swift */; };
+		BB81680E25D95E4B004B8BEA /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81680D25D95E4B004B8BEA /* UserSearchTableViewCell.swift */; };
+		BB81681125D9A487004B8BEA /* FollowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681025D9A487004B8BEA /* FollowManager.swift */; };
+		BB81681425D9A5D7004B8BEA /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681325D9A5D7004B8BEA /* Follow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +64,7 @@
 		BB8166D525CABF81004B8BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB8166E725CAC251004B8BEA /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		BB8166EA25CAF4F5004B8BEA /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		BB8166ED25CAF555004B8BEA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BB8166ED25CAF555004B8BEA /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		BB8166F025CAF562004B8BEA /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		BB8166F325CAF571004B8BEA /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		BB8166F625CB0C16004B8BEA /* UIViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtention.swift; sourceTree = "<group>"; };
@@ -74,6 +86,18 @@
 		BB8167E825D4BBEE004B8BEA /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		BB8167EB25D54CAD004B8BEA /* TweetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetManager.swift; sourceTree = "<group>"; };
 		BB8167EE25D56482004B8BEA /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		BB8167F125D6B477004B8BEA /* TweetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVM.swift; sourceTree = "<group>"; };
+		BB8167F425D6D437004B8BEA /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		BB8167F725D6EB1E004B8BEA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		BB8167FA25D8120F004B8BEA /* UserProfileTweetsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTweetsFilterView.swift; sourceTree = "<group>"; };
+		BB8167FD25D8183C004B8BEA /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
+		BB81680025D83AD9004B8BEA /* ProfileHeaderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderVM.swift; sourceTree = "<group>"; };
+		BB81680325D88136004B8BEA /* ExploreTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTitleView.swift; sourceTree = "<group>"; };
+		BB81680625D924E2004B8BEA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BB81680A25D92B57004B8BEA /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		BB81680D25D95E4B004B8BEA /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
+		BB81681025D9A487004B8BEA /* FollowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowManager.swift; sourceTree = "<group>"; };
+		BB81681325D9A5D7004B8BEA /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +174,7 @@
 				BB8167A425CF3016004B8BEA /* AuthManager.swift */,
 				BB8167A725CFF184004B8BEA /* FileUploadManager.swift */,
 				BB8167EB25D54CAD004B8BEA /* TweetManager.swift */,
+				BB81681025D9A487004B8BEA /* FollowManager.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -170,6 +195,8 @@
 		BB8166E125CAC00E004B8BEA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BB8167F125D6B477004B8BEA /* TweetVM.swift */,
+				BB81680025D83AD9004B8BEA /* ProfileHeaderVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,10 +207,12 @@
 				BB81670125CB1948004B8BEA /* Auth */,
 				BB8166E725CAC251004B8BEA /* MainTabbarController.swift */,
 				BB8166EA25CAF4F5004B8BEA /* FeedViewController.swift */,
-				BB8166ED25CAF555004B8BEA /* SearchViewController.swift */,
+				BB8166ED25CAF555004B8BEA /* ExploreViewController.swift */,
 				BB8166F025CAF562004B8BEA /* NotificationsViewController.swift */,
 				BB8166F325CAF571004B8BEA /* MessagesViewController.swift */,
 				BB8167B025D49406004B8BEA /* ComposeTweetViewController.swift */,
+				BB8167F425D6D437004B8BEA /* UserProfileViewController.swift */,
+				BB81680625D924E2004B8BEA /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +222,12 @@
 			children = (
 				BB8167E525D4AD28004B8BEA /* TweetTextView.swift */,
 				BB8167EE25D56482004B8BEA /* TweetCell.swift */,
+				BB8167F725D6EB1E004B8BEA /* ProfileHeaderView.swift */,
+				BB8167FA25D8120F004B8BEA /* UserProfileTweetsFilterView.swift */,
+				BB8167FD25D8183C004B8BEA /* FilterButtonView.swift */,
+				BB81680325D88136004B8BEA /* ExploreTitleView.swift */,
+				BB81680A25D92B57004B8BEA /* SearchBarView.swift */,
+				BB81680D25D95E4B004B8BEA /* UserSearchTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +238,7 @@
 				BB81677F25CF2967004B8BEA /* User.swift */,
 				BB8167AD25D2C46C004B8BEA /* AuthCredential.swift */,
 				BB8167E825D4BBEE004B8BEA /* Tweet.swift */,
+				BB81681325D9A5D7004B8BEA /* Follow.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,19 +369,30 @@
 			files = (
 				BB81671025CC8D7D004B8BEA /* LoginViewController.swift in Sources */,
 				BB8167AB25CFF2D1004B8BEA /* Constants.swift in Sources */,
-				BB8166EE25CAF555004B8BEA /* SearchViewController.swift in Sources */,
+				BB81680125D83AD9004B8BEA /* ProfileHeaderVM.swift in Sources */,
+				BB8166EE25CAF555004B8BEA /* ExploreViewController.swift in Sources */,
 				BB8166F425CAF571004B8BEA /* MessagesViewController.swift in Sources */,
 				BB8167AE25D2C46D004B8BEA /* AuthCredential.swift in Sources */,
 				BB8166C825CABF80004B8BEA /* AppDelegate.swift in Sources */,
+				BB81680E25D95E4B004B8BEA /* UserSearchTableViewCell.swift in Sources */,
+				BB8167FE25D8183C004B8BEA /* FilterButtonView.swift in Sources */,
+				BB8167F225D6B477004B8BEA /* TweetVM.swift in Sources */,
 				BB8167A825CFF184004B8BEA /* FileUploadManager.swift in Sources */,
 				BB8166FD25CB112A004B8BEA /* FloatingButtonActions.swift in Sources */,
 				BB81670C25CC8D47004B8BEA /* RegistrationViewController.swift in Sources */,
+				BB81681425D9A5D7004B8BEA /* Follow.swift in Sources */,
+				BB81680725D924E2004B8BEA /* SearchViewController.swift in Sources */,
 				BB81678325CF2DF1004B8BEA /* UserManager.swift in Sources */,
+				BB81680425D88137004B8BEA /* ExploreTitleView.swift in Sources */,
+				BB8167F825D6EB1E004B8BEA /* ProfileHeaderView.swift in Sources */,
 				BB8167A525CF3016004B8BEA /* AuthManager.swift in Sources */,
+				BB8167FB25D81210004B8BEA /* UserProfileTweetsFilterView.swift in Sources */,
 				BB8166CA25CABF80004B8BEA /* SceneDelegate.swift in Sources */,
+				BB81681125D9A487004B8BEA /* FollowManager.swift in Sources */,
 				BB8167EF25D56482004B8BEA /* TweetCell.swift in Sources */,
 				BB8166F125CAF562004B8BEA /* NotificationsViewController.swift in Sources */,
 				BB81678025CF2967004B8BEA /* User.swift in Sources */,
+				BB8167F525D6D437004B8BEA /* UserProfileViewController.swift in Sources */,
 				BB8166EB25CAF4F5004B8BEA /* FeedViewController.swift in Sources */,
 				BB81670925CC139B004B8BEA /* UITextFieldExtension.swift in Sources */,
 				BB8166E825CAC251004B8BEA /* MainTabbarController.swift in Sources */,
@@ -355,6 +402,7 @@
 				BB8166FA25CB0C42004B8BEA /* UIColorExtention.swift in Sources */,
 				BB81670625CC0E30004B8BEA /* UIComponents.swift in Sources */,
 				BB8167E625D4AD28004B8BEA /* TweetTextView.swift in Sources */,
+				BB81680B25D92B57004B8BEA /* SearchBarView.swift in Sources */,
 				BB8167E925D4BBEE004B8BEA /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

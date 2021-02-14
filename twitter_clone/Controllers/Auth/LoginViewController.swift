@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         imgView.image = #imageLiteral(resourceName: "TwitterLogo")
+        imgView.setDimensions(width: 100, height: 100)
         return imgView
     }()
     
@@ -63,6 +64,15 @@ class LoginViewController: UIViewController {
         btn.addTarget(self, action: #selector(controlFlowPressed), for: .touchUpInside)
         return btn
     }()
+    
+    private lazy var vStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [emailView, passwordView, loginButton])
+        stack.axis = .vertical
+        stack.spacing = 16
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
     //MARK: -Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,32 +106,25 @@ class LoginViewController: UIViewController {
     
     //MARK: -Functions
     
-    func configureView() -> Void {
+    private func configureView() -> Void {
         self.view.backgroundColor = .twitterBlue
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.navigationBar.barStyle = .black
         
-        //LOGO
+        //Adding subviews
         self.view.addSubview(logoImageView)
-        logoImageView.centerX(inView: self.view, topAnchor: self.view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
-        logoImageView.setDimensions(width: 100, height: 100)
+        self.view.addSubview(vStack)
+        self.view.addSubview(controlFlowButton)
         
-        //UIElements
-        let stackView = UIStackView(arrangedSubviews: [emailView, passwordView, loginButton])
-        stackView.axis = .vertical
-        stackView.spacing = 16
-        stackView.distribution = .fillEqually
-        
-        self.view.addSubview(stackView)
-        stackView.anchor(top: logoImageView.bottomAnchor,
+        //Positioning subviews
+        self.logoImageView.centerX(inView: self.view, topAnchor: self.view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
+        self.vStack.anchor(top: logoImageView.bottomAnchor,
                          left: self.view.safeAreaLayoutGuide.leftAnchor,
                          right: self.view.safeAreaLayoutGuide.rightAnchor,
                          marginLeft: 32,
                          marginRight: 32)
-        
-        self.view.addSubview(controlFlowButton)
-        controlFlowButton.anchor(bottom: self.view.safeAreaLayoutGuide.bottomAnchor)
-        controlFlowButton.centerX(inView: self.view)
+        self.controlFlowButton.anchor(bottom: self.view.safeAreaLayoutGuide.bottomAnchor)
+        self.controlFlowButton.centerX(inView: self.view)
     }
     
     

@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol TweetCellDelegate: class {
+    func showProfileForUser(_ user: User)
+}
+
 class TweetCell: UICollectionViewCell {
-    
     //MARK: -Logic Properties
+    
+    weak var delegate: TweetCellDelegate!
+    
     private var user: User? {
         didSet{
             guard let user = self.user else { return }
@@ -75,6 +81,7 @@ class TweetCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.font = .systemFont(ofSize: 15)
         lbl.numberOfLines = 0
+        lbl.lineBreakMode = .byWordWrapping
         return lbl
     }()
     
@@ -138,6 +145,7 @@ class TweetCell: UICollectionViewCell {
         return stack
     }()
     
+    
     //MARK: -Inits
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -148,6 +156,7 @@ class TweetCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     //MARK: -Selectors
     @objc
@@ -173,8 +182,9 @@ class TweetCell: UICollectionViewCell {
     @objc
     private func showTweeterProfile() -> Void {
         guard let user = self.user else { return }
-        print("Showing user(\(user.fullname))'s Profile")
+        self.delegate.showProfileForUser(user)
     }
+    
     
     //MARK: -Functions
     private func fetchUserData(_ id: String) -> Void {
@@ -226,6 +236,7 @@ class TweetCell: UICollectionViewCell {
                                  marginRight: cellMargin + 4)
         self.tweetTextLabel.anchor(top: self.fullNameLabel.bottomAnchor,
                                    left: self.userProfileImage.rightAnchor,
+                                   right: self.rightAnchor,
                                    marginTop: 8,
                                    marginLeft: spaceBetweenImageAndLabels,
                                    marginRight: cellMargin)
@@ -233,7 +244,7 @@ class TweetCell: UICollectionViewCell {
                            bottom: self.separatorView.topAnchor,
                            right: self.rightAnchor,
                            marginLeft: spaceBetweenImageAndLabels,
-                           marginBottom: cellMargin,
+                           marginBottom: cellMargin - 4,
                            marginRight: cellMargin + 4)
         self.separatorView.anchor(left: self.leftAnchor,
                                   bottom: self.bottomAnchor,
@@ -251,4 +262,6 @@ class TweetCell: UICollectionViewCell {
         
         return formatter.string(from: originalTime, to: now) ?? "1m"
     }
+    
+   
 }
