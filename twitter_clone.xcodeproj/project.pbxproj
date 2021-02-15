@@ -49,6 +49,7 @@
 		BB81680E25D95E4B004B8BEA /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81680D25D95E4B004B8BEA /* UserSearchTableViewCell.swift */; };
 		BB81681125D9A487004B8BEA /* FollowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681025D9A487004B8BEA /* FollowManager.swift */; };
 		BB81681425D9A5D7004B8BEA /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681325D9A5D7004B8BEA /* Follow.swift */; };
+		BB81681725DA9CD6004B8BEA /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681625DA9CD6004B8BEA /* EntryPointViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		BB81680D25D95E4B004B8BEA /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
 		BB81681025D9A487004B8BEA /* FollowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowManager.swift; sourceTree = "<group>"; };
 		BB81681325D9A5D7004B8BEA /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		BB81681625DA9CD6004B8BEA /* EntryPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPointViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				BB8167B025D49406004B8BEA /* ComposeTweetViewController.swift */,
 				BB8167F425D6D437004B8BEA /* UserProfileViewController.swift */,
 				BB81680625D924E2004B8BEA /* SearchViewController.swift */,
+				BB81681625DA9CD6004B8BEA /* EntryPointViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				BB8166FD25CB112A004B8BEA /* FloatingButtonActions.swift in Sources */,
 				BB81670C25CC8D47004B8BEA /* RegistrationViewController.swift in Sources */,
 				BB81681425D9A5D7004B8BEA /* Follow.swift in Sources */,
+				BB81681725DA9CD6004B8BEA /* EntryPointViewController.swift in Sources */,
 				BB81680725D924E2004B8BEA /* SearchViewController.swift in Sources */,
 				BB81678325CF2DF1004B8BEA /* UserManager.swift in Sources */,
 				BB81680425D88137004B8BEA /* ExploreTitleView.swift in Sources */,

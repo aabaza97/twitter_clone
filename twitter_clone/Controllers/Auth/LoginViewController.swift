@@ -89,9 +89,10 @@ class LoginViewController: UIViewController {
             switch result {
             case.success(_):
                 self?.navigationController?.dismiss(animated: true, completion: nil)
-                guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
-                guard let tabController = window.rootViewController as? MainTabbarController else { return }
-                tabController.checkLoginStatus()
+                let main = MainTabbarController()
+                main.modalPresentationStyle = .fullScreen
+                main.modalTransitionStyle = .crossDissolve
+                self?.present(main, animated: true)
                 break
             case.failure(_):
                 break

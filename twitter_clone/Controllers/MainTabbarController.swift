@@ -26,16 +26,9 @@ class MainTabbarController: UITabBarController {
     
     
     //MARK: -Overrides
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .twitterBlue
-        self.tabBar.isHidden = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.checkLoginStatus()
+        self.configureView()
     }
     
     
@@ -74,58 +67,31 @@ class MainTabbarController: UITabBarController {
         
         //Adding TabItems
         let imgConfig = UIImage.SymbolConfiguration(weight: .medium)
-        let home = setupNavControllerForTabbarItem(with: FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()),
-                                                   and: UIImage(systemName: "house.fill", withConfiguration: imgConfig))
+        let layout = UICollectionViewFlowLayout()
+        let tabbarItems: [UIViewController : UIImage?] = [
+            FeedViewController(collectionViewLayout: layout) :
+                UIImage(systemName: "house.fill", withConfiguration: imgConfig),
+            
+            ExploreViewController() :
+                UIImage(systemName: "magnifyingglass", withConfiguration: imgConfig),
+            
+            NotificationsViewController() :
+                UIImage(systemName: "bell", withConfiguration: imgConfig),
+            
+            MessagesViewController() :
+                UIImage(systemName: "envelope", withConfiguration: imgConfig),
+        ]
         
-        let search = setupNavControllerForTabbarItem(with: ExploreViewController(),
-                                                     and: UIImage(systemName: "magnifyingglass", withConfiguration: imgConfig))
         
-        let notifications = setupNavControllerForTabbarItem(with: NotificationsViewController(),
-                                                            and: UIImage(systemName: "bell", withConfiguration: imgConfig))
+        self.viewControllers = UIComponents.shared.setupTabbarItemsWithNavigation(from: tabbarItems)
         
-        let messages = setupNavControllerForTabbarItem(with: MessagesViewController(),
-                                                       and: UIImage(systemName: "envelope", withConfiguration: imgConfig))
-        
-        self.viewControllers = [home, search, notifications, messages]
-        
-    }
-    
-    ///Sets up a UINavigationController for a UIViewController with a TabbarItem image.
-    private func setupNavControllerForTabbarItem(with controller: UIViewController, and image: UIImage?) -> UINavigationController {
-        let nav = UINavigationController(rootViewController: controller)
-        nav.tabBarItem.image = image
-        nav.navigationBar.barTintColor = .white
-        return nav
-    }
-    
-    func checkLoginStatus() -> Void {
-        AuthManager.shared.checkUserAuthStatus { [weak self](result) in
-            switch result {
-            case.success(let userId):
-                UserManager.shared.getMyUser(with: userId) { (getResult) in
-                    switch getResult {
-                    case true :
-                        self?.configureView()
-                        break
-                    case false:
-                        self?.launchLogin()
-                        break
-                    }
-                }
-                break
-            case.failure(_):
-                //user is not logged in
-                self?.launchLogin()
-                break
-            }
-        }
     }
     
     private func logOut() -> Void {
-        AuthManager.shared.logOut { [weak self](result) in
+        AuthManager.shared.logOut { (result) in
             switch result {
             case true:
-                self?.checkLoginStatus()
+
                 break
             case false:
                 break
@@ -138,13 +104,4 @@ class MainTabbarController: UITabBarController {
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
     }
-    
-    private func launchLogin() -> Void {
-        DispatchQueue.main.async {
-            let nav = UINavigationController(rootViewController: LoginViewController())
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: true, completion: nil)
-        }
-    }
-    
 }

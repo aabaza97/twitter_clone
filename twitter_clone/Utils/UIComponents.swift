@@ -77,6 +77,15 @@ class UIComponents {
         return btn
     }
     
+    
+    func setupTabbarItemsWithNavigation(from controllers: [UIViewController : UIImage?]) -> [UIViewController] {
+        var tabbarControllers = [UIViewController]()
+        for controller in controllers {
+            tabbarControllers.append(self.setupNavControllerForTabbarItem(with: controller.key, and: controller.value))
+        }
+        return tabbarControllers
+    }
+    
     ///Sets up a UINavigationController for a UIViewController with a TabbarItem image.
     func setupNavControllerForTabbarItem(with controller: UIViewController, and image: UIImage?) -> UINavigationController {
         let nav = UINavigationController(rootViewController: controller)

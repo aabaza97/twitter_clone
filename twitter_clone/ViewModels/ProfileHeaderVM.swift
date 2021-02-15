@@ -141,7 +141,6 @@ class ProfileHeaderVM {
         FollowManager.shared.getFollowersCount { (count) in
             self._followersCount = count
         }
-        
     }
 
     private func getFollowingCount () -> Void {

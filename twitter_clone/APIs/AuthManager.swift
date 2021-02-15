@@ -18,6 +18,16 @@ class AuthManager {
     enum AuthError: Error {
         case FailedToSignUp
         case FailedToLogIn
+        case FailedToLoginAndLoad
+        
+        var description: String {
+            switch self {
+            case .FailedToLogIn: return "FailedToLogIn"
+            case .FailedToSignUp: return "FailedToSignUp"
+            case .FailedToLoginAndLoad: return "FailedToLoginAndLoad"
+            }
+        }
+        
     }
     
     //MARK: -Completion Handlers
@@ -62,6 +72,30 @@ class AuthManager {
         }
         
         completion(.success(userId))
+    }
+    
+    public func checkUserAuthStatusAndLoadData(completion: @escaping (AuthError?) -> Void){
+        self.checkUserAuthStatus { (authResult) in
+            switch authResult {
+            case.success(let userId):
+                UserManager.shared.getMyUser(with: userId) { (getResult) in
+                    switch getResult {
+                    case true :
+                        // loaded user's data successfully
+                        completion(nil)
+                        break
+                    case false:
+                        // failed to load user's data
+                        completion(.FailedToLoginAndLoad)
+                        break
+                    }
+                }
+                break
+            case.failure(_):
+                completion(.FailedToLogIn)
+                break
+            }
+        }
     }
     
     public func logOut(completion: @escaping signOutCompletionHanlder) -> Void  {

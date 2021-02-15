@@ -125,10 +125,13 @@ class RegistrationViewController: UIViewController {
             switch result {
             case.success(let newUser):
                 GlobalUser.shared.set(from: newUser)
+                
                 self?.navigationController?.dismiss(animated: true, completion: nil)
-                guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
-                guard let tabController = window.rootViewController as? MainTabbarController else { return }
-                tabController.checkLoginStatus()
+                let main = MainTabbarController()
+                main.modalPresentationStyle = .fullScreen
+                main.modalTransitionStyle = .crossDissolve
+                self?.present(main, animated: true)
+                
                 break
             case.failure(_):
                 print("Error: Failed to Create New Account")
