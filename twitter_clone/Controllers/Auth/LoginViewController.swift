@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     }()
     
     private lazy var txtEmail: UITextField = {
-        let txt = UIComponents.shared.createTextField(with: "Email", placeholderColor: .white, textColor: .white)
+        let txt = UIComponents.shared.createTextField(withPlaceholder: "Email", placeholderColor: .white, textColor: .white)
         return txt
     }()
     
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
     }()
     
     private lazy var txtPassword: UITextField = {
-        let txt = UIComponents.shared.createTextField(with: "Password", placeholderColor: .white, textColor: .white)
+        let txt = UIComponents.shared.createTextField(withPlaceholder: "Password", placeholderColor: .white, textColor: .white)
         txt.isSecureTextEntry = true
         return txt
     }()

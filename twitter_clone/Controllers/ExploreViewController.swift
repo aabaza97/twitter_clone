@@ -7,7 +7,10 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+private let headerReuseId: String = "exploreHeader"
+private let trendingReuseId: String = "trendingCell"
+
+class ExploreViewController: UICollectionViewController {
 
     //MARK: -Properties
     
@@ -58,13 +61,76 @@ class ExploreViewController: UIViewController {
     
     func configureView() -> Void {
         self.view.backgroundColor = .white
-        self.navigationItem.title = "Explore"
         
+        //navigation controller configuration
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.topItem?.titleView = titleView
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
         
+        
+        //collectionview configuration
+//        self.collectionView.frame = self.view.frame
+        self.collectionView.backgroundColor = .white
+        self.collectionView.contentInsetAdjustmentBehavior = .never
+        self.collectionView.register(TrendingCell.self,
+                                     forCellWithReuseIdentifier: trendingReuseId)
+        self.collectionView.register(ExploreHeaderView.self,
+                                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                     withReuseIdentifier: headerReuseId)
+        
     }
 
+}
+
+
+//MARK: -EXT(Controller)
+extension ExploreViewController {
+    //Header
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard indexPath.section == 0 else { return UICollectionReusableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 10)) }
+        let headerView: ExploreHeaderView = self.collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerReuseId, for: indexPath) as! ExploreHeaderView
+    
+        return headerView
+    }
+    
+    //Number of sections
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    
+    //Number of items
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    //Cells
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: trendingReuseId, for: indexPath) as! TrendingCell
+        return cell
+    }
+    
+}
+
+
+//MARK: -EXT(FlowLayout Delegate)
+extension ExploreViewController: UICollectionViewDelegateFlowLayout {
+    //Header Size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard section == 0 else { return CGSize(width: self.view.frame.width, height: 0) }
+        return CGSize(width: self.view.frame.width, height: 250)
+    }
+    
+    
+    //Item Size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.size.width, height: 90)
+    }
+    
+    //Item Spacing
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 }

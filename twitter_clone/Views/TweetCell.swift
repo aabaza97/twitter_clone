@@ -215,41 +215,57 @@ class TweetCell: UICollectionViewCell {
         self.addSubview(separatorView)
         
         
-        self.userProfileImage.anchor(top: self.topAnchor,
-                                     left: self.leftAnchor,
-                                     marginTop: cellMargin,
-                                     marginLeft: cellMargin)
-        self.fullNameLabel.anchor(top: self.topAnchor,
-                                  left: self.userProfileImage.rightAnchor,
-                                  marginTop: cellMargin,
-                                  marginLeft: spaceBetweenImageAndLabels)
-        self.usernameLabel.anchor(top: self.topAnchor,
-                                  left: self.fullNameLabel.rightAnchor,
-                                  marginTop: cellMargin,
-                                  marginLeft: 8)
-        self.timeLabel.anchor(top: self.topAnchor,
-                                  left: self.usernameLabel.rightAnchor,
-                                  marginTop: cellMargin)
-        self.actionButton.anchor(top: self.topAnchor,
-                                 right: self.rightAnchor,
-                                 marginTop: cellMargin,
-                                 marginRight: cellMargin + 4)
-        self.tweetTextLabel.anchor(top: self.fullNameLabel.bottomAnchor,
-                                   left: self.userProfileImage.rightAnchor,
-                                   right: self.rightAnchor,
-                                   marginTop: 8,
-                                   marginLeft: spaceBetweenImageAndLabels,
-                                   marginRight: cellMargin)
-        self.hStack.anchor(left: self.userProfileImage.rightAnchor,
-                           bottom: self.separatorView.topAnchor,
-                           right: self.rightAnchor,
-                           marginLeft: spaceBetweenImageAndLabels,
-                           marginBottom: cellMargin - 4,
-                           marginRight: cellMargin + 4)
-        self.separatorView.anchor(left: self.leftAnchor,
-                                  bottom: self.bottomAnchor,
-                                  right: self.rightAnchor,
-                                  marginTop: 5)
+        self.userProfileImage.anchor(
+            top: self.topAnchor,
+            left: self.leftAnchor,
+            marginTop: cellMargin,
+            marginLeft: cellMargin
+        )
+        self.fullNameLabel.anchor(
+            top: self.topAnchor,
+            left: self.userProfileImage.rightAnchor,
+            marginTop: cellMargin,
+            marginLeft: spaceBetweenImageAndLabels
+        )
+        self.usernameLabel.anchor(
+            top: self.topAnchor,
+            left: self.fullNameLabel.rightAnchor,
+            marginTop: cellMargin,
+            marginLeft: 8
+        )
+        self.timeLabel.anchor(
+            top: self.topAnchor,
+            left: self.usernameLabel.rightAnchor,
+            marginTop: cellMargin
+        )
+        self.actionButton.anchor(
+            top: self.topAnchor,
+            right: self.rightAnchor,
+            marginTop: cellMargin,
+            marginRight: cellMargin + 4
+        )
+        self.tweetTextLabel.anchor(
+            top: self.fullNameLabel.bottomAnchor,
+            left: self.userProfileImage.rightAnchor,
+            right: self.rightAnchor,
+            marginTop: 8,
+            marginLeft: spaceBetweenImageAndLabels,
+            marginRight: cellMargin
+        )
+        self.hStack.anchor(
+            left: self.userProfileImage.rightAnchor,
+            bottom: self.separatorView.topAnchor,
+            right: self.rightAnchor,
+            marginLeft: spaceBetweenImageAndLabels,
+            marginBottom: cellMargin - 4,
+            marginRight: cellMargin + 4
+        )
+        self.separatorView.anchor(
+            left: self.leftAnchor,
+            bottom: self.bottomAnchor,
+            right: self.rightAnchor,
+            marginTop: 5
+        )
     }
     
     private func getTweetTimeStamp(_ ts: Double) -> String {

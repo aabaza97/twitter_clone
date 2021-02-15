@@ -100,12 +100,12 @@ extension UserProfileViewController{
         return headerView
     }
     
-    //CollectionView Items
+    //Items count
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tweets.count
     }
     
-    //
+    //Cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tweetCell: TweetCell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseId,
                                                                       for: indexPath) as! TweetCell

@@ -37,7 +37,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     private lazy var txtEmail: UITextField = {
-        let txt = UIComponents.shared.createTextField(with: "Email", placeholderColor: .white, textColor: .white)
+        let txt = UIComponents.shared.createTextField(withPlaceholder: "Email", placeholderColor: .white, textColor: .white)
         txt.textContentType = .emailAddress
         return txt
     }()
@@ -51,7 +51,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     private lazy var txtPassword: UITextField = {
-        let txt = UIComponents.shared.createTextField(with: "Password", placeholderColor: .white, textColor: .white)
+        let txt = UIComponents.shared.createTextField(withPlaceholder: "Password", placeholderColor: .white, textColor: .white)
         txt.isSecureTextEntry = false
         txt.delegate = self
         return txt
@@ -65,7 +65,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     private lazy var txtUsername: UITextField = {
-        let txt = UIComponents.shared.createTextField(with: "Username", placeholderColor: .white, textColor: .white)
+        let txt = UIComponents.shared.createTextField(withPlaceholder: "Username", placeholderColor: .white, textColor: .white)
         txt.textContentType = .name
         return txt
     }()
@@ -78,7 +78,7 @@ class RegistrationViewController: UIViewController {
     }()
     
     private lazy var txtName: UITextField = {
-        let txt = UIComponents.shared.createTextField(with: "FullName", placeholderColor: .white, textColor: .white)
+        let txt = UIComponents.shared.createTextField(withPlaceholder: "FullName", placeholderColor: .white, textColor: .white)
         txt.textContentType = .name
         return txt
     }()

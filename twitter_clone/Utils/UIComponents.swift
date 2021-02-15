@@ -50,7 +50,7 @@ class UIComponents {
         return view
     }
     
-    func createTextField(with placeholder: String = "",
+    func createTextField(withPlaceholder placeholder: String = "",
                          placeholderColor: UIColor = .white,
                          textColor: UIColor = .white,
                          textSize: CGFloat = 17) -> UITextField {
@@ -58,7 +58,7 @@ class UIComponents {
         let txt = UITextField()
         txt.textColor = textColor
         txt.font = UIFont.systemFont(ofSize: textSize)
-        txt.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        txt.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
         return txt
         
     }
@@ -77,6 +77,14 @@ class UIComponents {
         return btn
     }
     
+    
+    func setupTabbarItemsWithNavigation(for controllers: [UIViewController], with icons: [UIImage?]) -> [UIViewController] {
+        var tabbarControllers = [UIViewController]()
+        for index in 0...(controllers.count - 1) {
+            tabbarControllers.append(self.setupNavControllerForTabbarItem(with: controllers[index], and: icons[index]))
+        }
+        return tabbarControllers
+    }
     
     func setupTabbarItemsWithNavigation(from controllers: [UIViewController : UIImage?]) -> [UIViewController] {
         var tabbarControllers = [UIViewController]()

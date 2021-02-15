@@ -71,7 +71,7 @@ class EntryPointViewController: UIViewController {
         }
         
         UIView.animate(withDuration: 0.2, animations: {
-            self.logoImageView.alpha = 0.1
+            self.logoImageView.alpha = 0.0
         }, completion: { (done) in
             guard done == true else {return}
             switch self.isLoggedIn {

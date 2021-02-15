@@ -50,6 +50,8 @@
 		BB81681125D9A487004B8BEA /* FollowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681025D9A487004B8BEA /* FollowManager.swift */; };
 		BB81681425D9A5D7004B8BEA /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681325D9A5D7004B8BEA /* Follow.swift */; };
 		BB81681725DA9CD6004B8BEA /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681625DA9CD6004B8BEA /* EntryPointViewController.swift */; };
+		BB81681A25DB14B4004B8BEA /* ExplorerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB81681925DB14B4004B8BEA /* ExplorerHeaderView.swift */; };
+		BBAC0A8425DB2C1400CDF65E /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC0A8325DB2C1400CDF65E /* TrendingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		BB81681025D9A487004B8BEA /* FollowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowManager.swift; sourceTree = "<group>"; };
 		BB81681325D9A5D7004B8BEA /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		BB81681625DA9CD6004B8BEA /* EntryPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPointViewController.swift; sourceTree = "<group>"; };
+		BB81681925DB14B4004B8BEA /* ExplorerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerHeaderView.swift; sourceTree = "<group>"; };
+		BBAC0A8325DB2C1400CDF65E /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +235,8 @@
 				BB81680325D88136004B8BEA /* ExploreTitleView.swift */,
 				BB81680A25D92B57004B8BEA /* SearchBarView.swift */,
 				BB81680D25D95E4B004B8BEA /* UserSearchTableViewCell.swift */,
+				BB81681925DB14B4004B8BEA /* ExplorerHeaderView.swift */,
+				BBAC0A8325DB2C1400CDF65E /* TrendingCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 			files = (
 				BB81671025CC8D7D004B8BEA /* LoginViewController.swift in Sources */,
 				BB8167AB25CFF2D1004B8BEA /* Constants.swift in Sources */,
+				BB81681A25DB14B4004B8BEA /* ExplorerHeaderView.swift in Sources */,
 				BB81680125D83AD9004B8BEA /* ProfileHeaderVM.swift in Sources */,
 				BB8166EE25CAF555004B8BEA /* ExploreViewController.swift in Sources */,
 				BB8166F425CAF571004B8BEA /* MessagesViewController.swift in Sources */,
@@ -395,6 +402,7 @@
 				BB81681125D9A487004B8BEA /* FollowManager.swift in Sources */,
 				BB8167EF25D56482004B8BEA /* TweetCell.swift in Sources */,
 				BB8166F125CAF562004B8BEA /* NotificationsViewController.swift in Sources */,
+				BBAC0A8425DB2C1400CDF65E /* TrendingCollectionViewCell.swift in Sources */,
 				BB81678025CF2967004B8BEA /* User.swift in Sources */,
 				BB8167F525D6D437004B8BEA /* UserProfileViewController.swift in Sources */,
 				BB8166EB25CAF4F5004B8BEA /* FeedViewController.swift in Sources */,

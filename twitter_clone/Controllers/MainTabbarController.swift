@@ -67,23 +67,22 @@ class MainTabbarController: UITabBarController {
         
         //Adding TabItems
         let imgConfig = UIImage.SymbolConfiguration(weight: .medium)
-        let layout = UICollectionViewFlowLayout()
-        let tabbarItems: [UIViewController : UIImage?] = [
-            FeedViewController(collectionViewLayout: layout) :
-                UIImage(systemName: "house.fill", withConfiguration: imgConfig),
-            
-            ExploreViewController() :
-                UIImage(systemName: "magnifyingglass", withConfiguration: imgConfig),
-            
-            NotificationsViewController() :
-                UIImage(systemName: "bell", withConfiguration: imgConfig),
-            
-            MessagesViewController() :
-                UIImage(systemName: "envelope", withConfiguration: imgConfig),
+        
+        let contollers: [UIViewController] = [
+            FeedViewController(collectionViewLayout: UICollectionViewFlowLayout()),
+            ExploreViewController(collectionViewLayout: UICollectionViewFlowLayout()),
+            NotificationsViewController(),
+            MessagesViewController()
         ]
         
+        let icons: [UIImage?] = [
+            UIImage(systemName: TabIcons.home.name, withConfiguration: imgConfig),
+            UIImage(systemName: TabIcons.explore.name, withConfiguration: imgConfig),
+            UIImage(systemName: TabIcons.notification.name, withConfiguration: imgConfig),
+            UIImage(systemName: TabIcons.messages.name, withConfiguration: imgConfig)
+        ]
         
-        self.viewControllers = UIComponents.shared.setupTabbarItemsWithNavigation(from: tabbarItems)
+        self.viewControllers = UIComponents.shared.setupTabbarItemsWithNavigation(for: contollers, with: icons)
         
     }
     
@@ -103,5 +102,13 @@ class MainTabbarController: UITabBarController {
         let nav = UINavigationController(rootViewController: ComposeTweetViewController())
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
+    }
+}
+
+//MARK: -Ext(UITabbarController Delegate)
+extension MainTabbarController: UITabBarControllerDelegate {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        let imgConfig = UIImage.SymbolConfiguration(weight: .bold)
+        tabBar.selectedItem?.selectedImage = item.image!.withConfiguration(imgConfig)
     }
 }

@@ -128,15 +128,17 @@ class FeedViewController: UICollectionViewController {
 
 //MARK: - EXT(CollectionViewDelegate)
 extension FeedViewController {
+    // Items count
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tweets.count
     }
     
+    //Cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tweetCell: TweetCell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseId,
                                                                       for: indexPath) as! TweetCell
-        let index: Int = indexPath.row
         
+        let index: Int = indexPath.row
         tweetCell.tweet = self.tweets[index]
         tweetCell.delegate = self
         
@@ -147,6 +149,8 @@ extension FeedViewController {
 
 //MARK: -EXT(FlowLayoutDelegate)
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
+    
+    //Cell Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let tweetVM = TweetVM(tweet: tweets[indexPath.row])
         let width = self.view.frame.width
@@ -154,6 +158,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
                       height: tweetVM.getTweetHeight(for: width))
     }
     
+    // Items Spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

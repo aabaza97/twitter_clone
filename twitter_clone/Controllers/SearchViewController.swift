@@ -23,14 +23,13 @@ class SearchViewController: UIViewController {
     }()
     
     private lazy var searchBar: UITextField = {
-        let bar = UITextField()
+        let bar = UIComponents.shared.createTextField(withPlaceholder: "Search users...",
+                                                      placeholderColor: .lightGray,
+                                                      textColor: .black,
+                                                      textSize: 16)
         let leftView = UIView()
-        bar.attributedPlaceholder = NSAttributedString(string: "Search users...", attributes: [
-            NSAttributedString.Key.foregroundColor : UIColor.lightGray
-        ])
         bar.backgroundColor = .systemGroupedBackground
         bar.layer.borderColor = UIColor.clear.cgColor
-        bar.font = UIFont.systemFont(ofSize: 16)
         bar.clipsToBounds = true
         bar.layer.cornerRadius = 16
         bar.leftViewMode = .always

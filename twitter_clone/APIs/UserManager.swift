@@ -25,7 +25,19 @@ class UserManager {
     typealias createUserCompletion = (Result<User, Error>) -> Void
     typealias getUserCompletionHandler = (Result<User, UserManagerError>) -> Void
     
-    //MARK: -Fucntions
+    
+    //MARK: -Private Functions
+    private func setUserData(for user: User, completion: @escaping createUserCompletion) -> Void {
+        do {
+            try db.collection(colName).document(user.userId).setData(from: user)
+            completion(.success(user))
+        } catch _ {
+            completion(.failure(UserManagerError.FailedToSetUserData))
+        }
+    }
+    
+    
+    //MARK: -Public Fucntions
     ///Creates New User. Do not specify "userId" nor "image". Returns a User Object on Success.
     public func createNew(from userCredentails: AuthCredential, profileImage: Data, completion: @escaping createUserCompletion){
         
@@ -68,7 +80,7 @@ class UserManager {
         }//#END Authentication
     }
     
-    func getMyUser(with userId: String, completion: @escaping (Bool) -> Void) -> Void {
+    public func getMyUser(with userId: String, completion: @escaping (Bool) -> Void) -> Void {
         db.collection(colName).document(userId).getDocument { (snapshot, error) in
             guard let data = snapshot?.data(), error == nil else { completion(false); return }
             GlobalUser.shared.set(from: data)
@@ -76,7 +88,7 @@ class UserManager {
         }
     }
     
-    func getUser(with id: String, completion: @escaping getUserCompletionHandler) -> Void {
+    public func getUser(with id: String, completion: @escaping getUserCompletionHandler) -> Void {
         db.collection(colName).document(id).getDocument { (snapshot, error) in
             guard let data = snapshot?.data(), error == nil else { completion(.failure(.FailedToGetUserData)); return }
             let user = User(from: data)
@@ -84,13 +96,10 @@ class UserManager {
         }
     }
     
-    private func setUserData(for user: User, completion: @escaping createUserCompletion) -> Void {
-        do {
-            try db.collection(colName).document(user.userId).setData(from: user)
-            completion(.success(user))
-        } catch _ {
-            completion(.failure(UserManagerError.FailedToSetUserData))
-        }
+    public func search(by fullname: String, completion: @escaping ([User]) -> Void) -> Void {
+        db.collection(colName).whereField("fullname", isEqualTo: fullname)
     }
+    
+    
 
 }
